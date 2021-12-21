@@ -8,7 +8,7 @@ import (
 
 func RunTimer() {
 	sitDuration := time.Minute * 35
-	standDuration := time.Second * 5
+	standDuration := time.Minute * 5
 	for {
 		time.Sleep(sitDuration)
 		fmt.Println("请站起来吧")
