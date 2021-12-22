@@ -44,7 +44,7 @@ func ui() error {
 		return err
 	}
 	_ = tray.SetVisible(true)
-	_ = tray.SetToolTip("站起来休息会吧")
+
 	ico, err = loadIcon()
 	if err != nil {
 		return err
