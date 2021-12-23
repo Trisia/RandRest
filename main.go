@@ -54,7 +54,9 @@ func ui() error {
 		wmain.AddDisposable(ico)
 		_ = tray.SetIcon(ico)
 	}
-
+	resetBtn := walk.NewAction()
+	_ = resetBtn.SetText("重置")
+	resetBtn.Triggered().Attach(Reset)
 	quitBtn := walk.NewAction()
 	_ = quitBtn.SetText("退出")
 	quitBtn.Triggered().Attach(func() {
@@ -62,6 +64,7 @@ func ui() error {
 	})
 
 	actions := tray.ContextMenu().Actions()
+	_ = actions.Add(resetBtn)
 	_ = actions.Add(quitBtn)
 	return nil
 }
