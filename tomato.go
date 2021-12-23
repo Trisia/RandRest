@@ -20,6 +20,7 @@ var (
 // Reset 重置计数器
 func Reset() {
 	atomic.SwapInt32(&duration, 0)
+	_ = tray.SetToolTip(fmt.Sprintf("静坐: %d/%d min", duration, sitDuration))
 }
 
 // RunTimer 启动计时器
