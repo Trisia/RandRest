@@ -2,6 +2,14 @@
 
 > Version 1.0.3
 
+程序截图：
+
+![程序截图](doc/img.png)
+
+- 下载程序：[RandRest v1.0.3](https://github.com/Trisia/RandRest/releases/tag/v1.0.3)
+
+## 工作原理
+
 默认情况时钟程序将会开机自启动。
 
 ```
@@ -10,6 +18,7 @@ For Loop:
     站立：5min
 ```
 
+## 编译
 
 使用脚本编译，切换目录到项目目录，打开CMD窗口运行
 
@@ -27,7 +36,3 @@ D:\Project\cliven\RandRest>buid.bat
 [+] target\StandRest_386.exe
 [+] target\StandRest.exe
 ```
-
-程序截图：
-
-![程序截图](doc/img.png)
