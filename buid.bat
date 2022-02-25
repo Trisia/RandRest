@@ -1,5 +1,6 @@
-MD target
 @echo off
+
+MD target
 
 SET GOARCH=386
 go build -ldflags="-s -w -H windowsgui" -o "target\StandRest_386.exe"
