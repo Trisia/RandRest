@@ -1,12 +1,14 @@
 # 站起来休息一会吧
 
-> Version 1.1.0
+![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/Trisia/RandRest)
+![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/Trisia/RandRest)
+
 
 程序截图：
 
 ![程序截图](doc/img.png)
 
-- 下载程序：[RandRest v1.1.0](https://github.com/Trisia/RandRest/releases/tag/v1.1.0)
+- [下载程序 RandRest.exe](https://github.com/Trisia/RandRest/releases)
 
 ## 工作原理
 

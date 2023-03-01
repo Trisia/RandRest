@@ -10,7 +10,7 @@ import (
 
 const (
 	sitDuration   int32 = 35 // 静坐时间
-	standDuration int32 = 5 // 站立时间
+	standDuration int32 = 5  // 站立时间
 )
 
 const (
