@@ -1,12 +1,12 @@
 # 站起来休息一会吧
 
-> Version 1.0.3
+> Version 1.1.0
 
 程序截图：
 
 ![程序截图](doc/img.png)
 
-- 下载程序：[RandRest v1.0.3](https://github.com/Trisia/RandRest/releases/tag/v1.0.3)
+- 下载程序：[RandRest v1.1.0](https://github.com/Trisia/RandRest/releases/tag/v1.1.0)
 
 ## 工作原理
 
