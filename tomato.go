@@ -10,7 +10,7 @@ import (
 
 const (
 	sitDuration   int32 = 35 // 静坐时间
-	standDuration int32 = 5  // 站立时间
+	standDuration int32 = 5 // 站立时间
 )
 
 const (
@@ -56,7 +56,7 @@ func RunTimer() {
 			} else {
 				_ = tray.ShowCustom("请站起来吧", "你已经久坐了工作很久了", ico)
 				walk.MsgBox(wmain, "请站起来吧", "你已经久坐了工作很久了", win.MB_SYSTEMMODAL|walk.MsgBoxOK|walk.MsgBoxIconWarning)
-				Work()
+				Rest()
 			}
 		case StateRest:
 			_ = hitBtn.SetToolTip(fmt.Sprintf("休息: %d/%d min", current, standDuration))
@@ -64,8 +64,8 @@ func RunTimer() {
 				_ = tray.SetToolTip(fmt.Sprintf("休息: %d/%d min", current, standDuration))
 			} else {
 				_ = tray.ShowCustom("请接续工作吧", "你已经休息了一段时间了", ico)
-				walk.MsgBox(wmain, "请接续工作把", "你已经休息了一段时间了", win.MB_SYSTEMMODAL|walk.MsgBoxOK|walk.MsgBoxIconWarning)
-				Rest()
+				walk.MsgBox(wmain, "请接续工作吧", "你已经休息了一段时间了", win.MB_SYSTEMMODAL|walk.MsgBoxOK|walk.MsgBoxIconWarning)
+				Work()
 			}
 		}
 	}
