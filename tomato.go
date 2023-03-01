@@ -23,11 +23,14 @@ var (
 	state   int32 // 状态
 )
 
+var hitBtn *walk.Action
+
 // Work 重置计数器
 func Work() {
 	atomic.SwapInt32(&counter, 0)
 	atomic.SwapInt32(&state, StateWorking)
 	_ = tray.SetToolTip(fmt.Sprintf("工作: %d/%d min", counter, sitDuration))
+	_ = hitBtn.SetText(fmt.Sprintf("工作: %d/%d min", counter, sitDuration))
 }
 
 // Rest 休息
@@ -35,6 +38,7 @@ func Rest() {
 	atomic.SwapInt32(&counter, 0)
 	atomic.SwapInt32(&state, StateRest)
 	_ = tray.SetToolTip(fmt.Sprintf("休息: %d/%d min", counter, standDuration))
+	_ = hitBtn.SetText(fmt.Sprintf("休息: %d/%d min", counter, standDuration))
 }
 
 // RunTimer 启动计时器
@@ -46,6 +50,7 @@ func RunTimer() {
 
 		switch atomic.LoadInt32(&state) {
 		case StateWorking:
+			_ = hitBtn.SetText(fmt.Sprintf("工作: %d/%d min", counter, sitDuration))
 			if current < sitDuration {
 				_ = tray.SetToolTip(fmt.Sprintf("工作: %d/%d min", counter, sitDuration))
 			} else {
@@ -54,6 +59,7 @@ func RunTimer() {
 				Work()
 			}
 		case StateRest:
+			_ = hitBtn.SetToolTip(fmt.Sprintf("休息: %d/%d min", current, standDuration))
 			if current < standDuration {
 				_ = tray.SetToolTip(fmt.Sprintf("休息: %d/%d min", current, standDuration))
 			} else {

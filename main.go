@@ -57,13 +57,18 @@ func ui() error {
 		wmain.AddDisposable(ico)
 		_ = tray.SetIcon(ico)
 	}
-	restBtn := walk.NewAction()
-	_ = restBtn.SetText("休息一下")
-	restBtn.Triggered().Attach(Rest)
+
+	// 提示文字
+	hitBtn = walk.NewAction()
+	_ = hitBtn.SetEnabled(false)
 
 	workBtn := walk.NewAction()
 	_ = workBtn.SetText("重新计时")
-	restBtn.Triggered().Attach(Work)
+	workBtn.Triggered().Attach(Work)
+
+	restBtn := walk.NewAction()
+	_ = restBtn.SetText("休息一下")
+	restBtn.Triggered().Attach(Rest)
 
 	quitBtn := walk.NewAction()
 	_ = quitBtn.SetText("退出")
@@ -72,11 +77,12 @@ func ui() error {
 	})
 
 	actions := tray.ContextMenu().Actions()
-	_ = actions.Add(restBtn)
+	_ = actions.Add(hitBtn)
 	_ = actions.Add(workBtn)
+	_ = actions.Add(restBtn)
 	_ = actions.Add(quitBtn)
 
-	_ = tray.ShowMessage("RandRest", "时钟程序已经在后台运行。")
+	//_ = tray.ShowMessage("RandRest", "时钟程序已经在后台运行。")
 	return nil
 }
 
