@@ -16,6 +16,11 @@ var (
 )
 
 func main() {
+	// 开机启动
+	if boot, _ := BootState(); !boot {
+		_ = BootSwitch(true)
+	}
+
 	err := ui()
 	if err != nil {
 		panic(err)
@@ -70,6 +75,8 @@ func ui() error {
 	_ = actions.Add(restBtn)
 	_ = actions.Add(workBtn)
 	_ = actions.Add(quitBtn)
+
+	_ = tray.ShowMessage("RandRest", "时钟程序已经在后台运行。")
 	return nil
 }
 
