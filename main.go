@@ -48,15 +48,18 @@ func ui() error {
 	ico, err = loadIcon()
 	if err != nil {
 		return err
-		//zap.L().Error("无法加载图标", zap.Error(err))
-		//err = nil
 	} else {
 		wmain.AddDisposable(ico)
 		_ = tray.SetIcon(ico)
 	}
-	resetBtn := walk.NewAction()
-	_ = resetBtn.SetText("重置")
-	resetBtn.Triggered().Attach(Reset)
+	restBtn := walk.NewAction()
+	_ = restBtn.SetText("休息一下")
+	restBtn.Triggered().Attach(Rest)
+
+	workBtn := walk.NewAction()
+	_ = workBtn.SetText("重新计时")
+	restBtn.Triggered().Attach(Work)
+
 	quitBtn := walk.NewAction()
 	_ = quitBtn.SetText("退出")
 	quitBtn.Triggered().Attach(func() {
@@ -64,7 +67,8 @@ func ui() error {
 	})
 
 	actions := tray.ContextMenu().Actions()
-	_ = actions.Add(resetBtn)
+	_ = actions.Add(restBtn)
+	_ = actions.Add(workBtn)
 	_ = actions.Add(quitBtn)
 	return nil
 }
